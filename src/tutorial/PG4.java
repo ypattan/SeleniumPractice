@@ -10,8 +10,8 @@ public class PG4 {
 		
 		driver.get("http://demo.guru99.com/selenium/deprecated.html");
 		driver.switchTo().frame("classFrame");
-		//driver.findElement(By.linkText("Deprecated")).click();
-		//driver.close();
+		driver.findElement(By.linkText("Deprecated")).click();
+		driver.close();
 	}
 
 }

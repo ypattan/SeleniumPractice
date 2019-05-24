@@ -19,7 +19,7 @@ public class PG2 {
 		/*
 		 * clicks on and opens in the same window the Link Text that is specified
 		 */
-		//driver.close();
-		//System.exit(0);
+		driver.close();
+		System.exit(0);
 	}
 }
