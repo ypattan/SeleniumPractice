@@ -14,7 +14,12 @@ public class PG2 {
 		tagName = driver.findElement(By.id("search")).getTagName();
 		//only input areas seem to have id's and tag names that can be used in the above command
 		System.out.println(tagName);
-		driver.close();
-		System.exit(0);
+		
+		driver.findElement(By.linkText("CUSTOMS")).click();
+		/*
+		 * clicks on and opens in the same window the Link Text that is specified
+		 */
+		//driver.close();
+		//System.exit(0);
 	}
 }

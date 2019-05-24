@@ -1,0 +1,50 @@
+Selenium
+
+Get Commands: fetch various importatn information about the page/element
+	get(): 	
+		atomatically opens a new browser window and fetches the page that you specify inside the parentheses
+		parameter must be a String object
+
+	getTitle():	
+		needs no parameters
+		fetches the title of the current page
+		leading and trailing of white space are trimmed
+		returns a null string if the page has no title
+				
+	getPageSource():
+		needs no parameters
+		returns the source code of the the page as a string value
+		
+	getCurrentUrl():
+		needs no parameters
+		fetches the string representing the current URL that the browser is looking at
+		
+	getText():
+		fetches the inner text of the element that you specify
+		
+Navigate commands: allow you to refresh, go-into, and switch back and forth between different web pages
+	navigate().to():
+		automatically opens a new browser window and fetches the page that you specify inside the parentheses
+		essentially the same as get()
+	
+	navigate().refresh():
+		needs no parameters
+		refreshes the current page
+		
+	navigate().back():
+		needs no parameters
+		takes you back by one page on the browser's history
+		
+	navigate().forward():
+		needs no parameters
+		takes you forward by one page on the browser's history
+		
+Closing and Quitting Browser Windows:
+	close():
+		needs no parameters
+		it closes only the browser window that WebDriver is currently controlling
+	
+	quit():
+		needs no parameters
+		it closes all windows that WebDriver has opened
+	

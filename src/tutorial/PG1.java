@@ -57,3 +57,5 @@ public class PG1 {
 		 */
 	}
 }
+
+//following tutorial: https://www.guru99.com/first-webdriver-script.html
