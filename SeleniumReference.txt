@@ -1,4 +1,5 @@
 Selenium
+reference: https://www.guru99.com/first-webdriver-script.html
 
 Get Commands: fetch various importatn information about the page/element
 	get(): 	
@@ -47,4 +48,95 @@ Closing and Quitting Browser Windows:
 	quit():
 		needs no parameters
 		it closes all windows that WebDriver has opened
+		
+Waits: there are two kinds of waits
+	Implicit Wait
+		used to set the default waiting time throughout the program
+		usually declared in the stantiation part of the code
+		will only need to import one package → import.util.concurrent.TimeUnit;
+		on the instation part of code → driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+				this means that you are setting 10 seconds as your default wait time
+				"10" and "SECONDS" can be changed to any int and time unit
 	
+	Explicit Wait
+		used to set the waiting time for a particular instance only
+		are done using the WebDriverWait and ExpectedCondition classes
+		in the example: wait up to 10 seconds for an element whose id is "username" to become visible before proceeding to the next command
+			import necessary packages → import org.openqa.selenium.support.ui.ExpectedCondition;
+										import org.openqa.selenium.support.ui.WebDriverWait;
+			Declare a WebDriverWait variable → WebDriverWait myWaitVar = new WebDriverWait(driver, 10);
+			Use myWaitVar with ExpectedConditions on portions where you need the explicit wait to occur → myWaitVar.until(ExpectedCondiitions.visibilityOfElementLocated(By.id("username")));
+																										  driver.findElement(By.id("username")).sendKeys("tutorial");
+
+Conditions: following methods are used in conditional and looping operations
+	isEnabled():
+		when you want to verify whether a certian element is enabled or not before executing a command
+		ex.
+			WebElement txtbox_username = driver.findElement(By.id."username"));
+			if(txtbox_username.isEnabled()) {
+				txtbox_username.sendKeys("tutorial");
+			}
+			
+	isDisplayed():
+		when you want to verify whether a certian element is displayed or not before executing a command
+		ex.
+			do {
+				//do something here
+			} while (driver.findElement(By.id("username")).isDisplayed());
+			
+	isSelected():
+		when you want to verify whether a certian check box, radio button, or option in a drop-down box is selected. It does not work on other elements
+		ex. 
+			//"one-way" and "two-way" are radio buttons
+			if (driver.findElement(By.id("one-way")).isSelected()) {
+					driver.findElement(By.id("two-way"))click();
+			}
+			
+Using ExpectedConditions:
+	The ExpectedConditions class offers a wider set of conditions that you can use in conjunction with WebDriverWait's until() method
+	
+	alertIsPresent():
+		waits until an alert box is displayed
+		ex. 
+			if (myWaitVar.until(ExpectedCondition.alertIsPresent()) != null) {
+				System.out.println("alert is present!");
+			}
+	
+	elementToBeClickable():
+		waits until an element is visisble and, at the same time enabled
+		example will wait until element with id="username" becomes visible and enabled first before assigning that element as a WebElement variable named "txtUserName"
+		ex.
+			WebElement txtUserName = myWaitVar.until(ExpectedConditions.elementToBeClickable(By.id("username")));
+	
+	frameToBeAvailiableAndSwitchToIt():
+		waits until the given frame is already availiable, and then automatically switches to it
+		ex.
+			This will automatically switch to the "viewframe" once it becomes availiable
+			myWaitVar.until(ExpectedConditions.framsToBeAvailiableAndSwitchToIt("viewIFRAME"));
+
+Catching Exceptions:
+	when usingisEnabled(), isDisplayed(), and isSelected(), WebDriver assumes that the element already exists on the page.
+	Else, it will throw a NoSuchElementException.
+	To avoid this, use a try-catch block so that the program will not be interrupted
+	
+	ex.
+		WebElement txtbox_username = driver.findelement(By.id("username"));
+		try {
+			if(txtbox_username.isEnabled()) {
+				txtbox_username.sendKeys("tutorial");
+			}
+		}
+		
+		catch (NoSuchElementException nsee) {
+			System.out.println(nsee.toSrting());
+		}
+		
+	If you use explicit waits, the type od excpetion that you should catch is the "TimeoutException"
+		WebDriverWait myWaitVar = new WebDriverWait(driver, 3);
+		try {
+			myWaitVar.until(ExpectedConditions.visiblityOfElementLocated(By.id("username")));
+			driver.findElement(By.id("username")).sendKeys("tutorial");
+		} catch (TimeoutException toe) {
+			System.out.println(toe.toString());
+		}
+		
