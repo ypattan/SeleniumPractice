@@ -1,7 +1,69 @@
 Selenium
 reference: https://www.guru99.com/first-webdriver-script.html
+just some tiny arrows → → → → →
 
-Get Commands: fetch various importatn information about the page/element
+Locating by DOM (Document Object Model):
+	Will be uisng developer options in Chrome [right click → "Inspect"]
+	can also use Firebug and XPath
+	XPath:
+		language used when locating XML nodes. Since HTML can be thought of as an implmentation of XML, we can also use XPath in locating HTML elements
+		Advantages: it can access almost any element, even those without class, name, or id attributes
+		Disadvantages: It is the most complicated method of identifying elementsbecause of too many different rules and considerations
+		Firebug can automatically gernerate XPath locators. In the following example, we will access an image that cannot possibly be accessed through the methods we discussed earlier
+	Four basic ways to locate an element through DOM:
+		getElementById:
+			It will only get one element for you
+			That element bear the ID that you specified inside the parentheses of getElementById()
+			document.getElementById("id of the element") : id of the element = this is the value of the ID attribute of the element to be accessed, specified inside parentheses
+			Steps [inly works on chrome, need add-ons to do thi in firefox]:
+				1. navigate to page and find element to get id of
+				2. right click on it and select "Inspect"
+				3. window that opens up has all info on that is related to that element, id should be in there
+		
+		getElementsByName():
+			It will get a collection of elements whose names are all the same
+			Each element is indexed with a number starting from 0 just like an array
+			You specify which element you wish to access by putting its index number into the square brackets in getElementsByName's syntax
+			Similar syntax as getElementById → document.getelementsByName("name of the elements")
+			Same steps for getting name as it is for ID
+			
+		dom:name():
+			this method will only apply if the element you are accessing is contained within a named form
+			document.forms["name of the form"].elements["name of the element"]
+				name of the form = the value of the name attribute of the form tag that contains the element you want to access
+				name of the element = the value of the name attribute of the element you wish to access
+			to find form name, follow same instructions as looking for ID, but instead look at the confining elements and "form name" should be there
+		
+		dom:index():
+			this method applies even when the element is not within a named form because it uses the form's index and not its name
+			document.forms[index of the form].elements[index of the element]
+				index of the form = index number (starting at 0) of the form with respect to the whole page
+				index of the element = the index number (starting at 0) of the lemenet with respect to the whole form that contains it
+			same way of getting necessary info as previous ones but:
+				ex. no name and id attributes, if it is the only form on the page the its index will be 0
+					will need to count number fo inputs in form to get "element index"
+		_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+		|							|									|								|
+		|			Method			|			Target Syntax			|			Example				|
+		|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|	By ID					|	id = id_of_the_element			|		id = email				|
+		|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|	By Name			  		|	name = name_of_the_element		|		name = userName			|
+		|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|	By Name Using Filters	|	name = name_of_the_element		|		name = tripType			|
+		|							|	filter = value_of_filter		|		value = oneway			|
+		|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|	By link text			|	link = link_text				|		link = REGISTER			|
+		|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|	Tag and ID				|	css = tag#id					|		css = input#email		|
+		|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|	Tag and Class			| css = tag[attribute e= valie]		|	css=input[name=;astName]	|
+		|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		| Tag, Class, Attribute		| css.tag.class[atrribute=value]	|	css = input.inputtext(binder|
+		|							|									|			[tabindex = 1])		|
+		|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+
+		
 	get(): 	
 		atomatically opens a new browser window and fetches the page that you specify inside the parentheses
 		parameter must be a String object
