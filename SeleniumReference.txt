@@ -63,6 +63,41 @@ Locating by DOM (Document Object Model):
 		|							|									|			[tabindex = 1])		|
 		|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
 
+
+FindElement():
+	takes in the By object as the parameter and returns an object of type WebElement. The By object in tyrn can be used with various locator stratefies such as ID, Name, Class Name, XPath
+	WebElement elementName = driver.findElement(By.LocatorStrategy("LocatorValue"));
+		Locator Strategy can be any of the followint: ID, Name, Class Name, Tag Name, Link Text, Partial Link Text, XPATH
+	Locator Calue is the unique value ising whivh a web element can be indentifie. It is the reposnsibility of develo[ers and testers to make sure that web elements are uniquely identifiable using certain properties such as ID or name
+		Ex.
+			WebElement loginlink = driver.findElementt(By.linkText("Login"))
+					
+	command syntax:
+		List<WebElement> elementName = driver.findElements(By.LocatorStrategy("LocatorValue"));
+		ex. List <WebElement> listOfElement = driver.findElements(By.xpath("//div"));
+		
+		_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+		|									|									|
+		|			Find Element			|			Find Element			|
+		|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|Returns the first most web element	|Retrurns a list of web elements	|
+		|if there are multiple web elements	|									|
+		|found with the same locator		|									|
+		|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|Throws exception NoSuchElementExce-|Returns an empty list it there are |
+		|ption if there are no elements 	|no web elements matching the 		|
+		|matching the locator strategy		|locator strategy					|
+		|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|It will only find one web element	|It will find a collection of 		|
+		|									|elements whose match the locator	|
+		|									|strategy							|
+		|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|Not applicable						|Each Web element is indexed with a |
+		|									|number starting from 0 just like an|
+		|									|array								|
+		|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		
+	
 		
 	get(): 	
 		atomatically opens a new browser window and fetches the page that you specify inside the parentheses
