@@ -15,7 +15,7 @@ public class InputPractice {
 		
 		
 		email.sendKeys("yamini.pattan@gmail.com");
-		password.sendKeys("R!x#6I85afHq");
+		password.sendKeys("");
 		
 		/*
 		 * submit buttons are used to submit the entire form to the server
@@ -33,7 +33,7 @@ public class InputPractice {
 		//url: https://www.instagram.com/accounts/login/?source=auth_switcher
 		//colorfultortoise
 		//colorfultortoise
-		//R!x#6I85afHq
+		//
 	}
 	
 }
