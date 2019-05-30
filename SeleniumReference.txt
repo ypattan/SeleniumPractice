@@ -150,6 +150,7 @@ Waits: there are two kinds of waits
 	Implicit Wait
 		used to set the default waiting time throughout the program
 		usually declared in the stantiation part of the code
+		the implicit wait will tell the web driver to wait for a certain amount of time before it will throw a "No Such Element Exception"
 		will only need to import one package → import.util.concurrent.TimeUnit;
 		on the instation part of code → driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 				this means that you are setting 10 seconds as your default wait time
