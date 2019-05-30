@@ -26,14 +26,18 @@ public class ClickPractice {
 		}
 	}
 	
-	public void main (String[]args) {
+	public static void main (String[] args) {
 		System.setProperty("webdriver.chrome.chromedriver", "chromedriver");
 		WebDriver driver = new ChromeDriver();
 		
 		driver.get("https://www.vans.com/");
 		
 		//try click on link using href
-		clickLinkByHref("/shop.html", "a");
+		/*
+		 * clickLinkByHref("/shop.html", "a");
+		 * not sure what does wrong here because instead of clicking on the button
+		 * and navigating to the expected page, it instead goes to data;
+		 */
 		
 	}
 
