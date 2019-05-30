@@ -33,11 +33,14 @@ public class ClickPractice {
 		driver.get("https://www.vans.com/");
 		
 		//try click on link using href
+		driver.findElement(By.xpath("//a[@href='/shop.html']")).click(); //works as expected
 		/*
 		 * clickLinkByHref("/shop.html", "a");
 		 * not sure what does wrong here because instead of clicking on the button
 		 * and navigating to the expected page, it instead goes to data;
 		 */
+		
+		driver.quit();
 		
 	}
 
