@@ -9,13 +9,13 @@ public class InputPractice {
 		System.setProperty("webdriver.chrome.chromedriver", "chromedriver");
 		WebDriver driver = new ChromeDriver();
 		
-		driver.get("https://www.instagram.com/accounts/login/?source=auth_switcher");
+		driver.get("https://www.pandora.com/account/sign-in");
 		WebElement email = driver.findElement(By.name("username"));
 		WebElement password = driver.findElement(By.name("password"));
 		
 		
-		email.sendKeys("yamini.pattan@gmail.com");
-		password.sendKeys("");
+		email.sendKeys("ypattanjunk@gmail.com");
+		password.sendKeys("1hsv1k1ngs");
 		
 		/*
 		 * submit buttons are used to submit the entire form to the server
@@ -30,10 +30,9 @@ public class InputPractice {
 		//everything but click is working
 		//WebElement login = driver.findElement(By.name("Log In"));
 		//login.click();
-		//url: https://www.instagram.com/accounts/login/?source=auth_switcher
-		//colorfultortoise
-		//colorfultortoise
-		//
+		
+		//driver.findElement(By.className("")).click();
+		driver.quit();
+		
 	}
-	
 }
