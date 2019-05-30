@@ -60,14 +60,15 @@ public class InputPractice {
 		//https://www.testingexcellence.com/click-link-href-value-webdriver/
 		//clickLinkByHref("Browse", "span");
 		
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click(, arg1);", driver.findElement(By.xpath("//span[@class='NavHorizontal_item']//a")));
+		//try to click on Browse button using JSE
+		//JavascriptExecutor js = (JavascriptExecutor) driver;
+		//js.executeScript("arguments[0].click(, arg1);", driver.findElement(By.xpath("//span[@class='NavHorizontal_item']//a")));
 		
+		//try to click on Browse button using Action class
 		//Actions action = new Actions(driver);
 		//action.moveToElement(driver.findElement(By.xpath("//span[@class='NavHorizontal_item']//a"))).click().perform();
 		
-		//driver.findElement(By.linkText("browse")).click();
-		//driver.findElement(By.href("NavHorizontal__item__link")).click();
+		//close open windows after running program
 		driver.quit();
 		
 	}
