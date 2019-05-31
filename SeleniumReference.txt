@@ -238,3 +238,22 @@ Catching Exceptions:
 			System.out.println(toe.toString());
 		}
 		
+
+		_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+		|Elements		|Command			|Description												   |
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|				|sendKeys()			|used to enter values onto text boxes						   |
+		|Input Box		|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|				|clear()			|used to clear text boxes of its current value				   |
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|Links			|click()			|used to click on the link and wait for page to load complete  |
+		|				|					|before proceeding to the next command.						   |
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|Submit Button	|submit()			|															   |
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|Check Box		|click()			|used to toggle the element on/off							   |
+		|Radio Button	|					|															   |
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		
+			WebDriver allows selection of more than one option in a multiple SELECT element
+			You can use the submit() method on any element within the form. WebDriver will automatically trigger the submit funtion of the form where that element belongs to
