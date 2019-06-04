@@ -239,21 +239,79 @@ Catching Exceptions:
 		}
 		
 
-		_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-		|Elements		|Command			|Description												   |
-		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
-		|				|sendKeys()			|used to enter values onto text boxes						   |
-		|Input Box		|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
-		|				|clear()			|used to clear text boxes of its current value				   |
-		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
-		|Links			|click()			|used to click on the link and wait for page to load complete  |
-		|				|					|before proceeding to the next command.						   |
-		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
-		|Submit Button	|submit()			|															   |
-		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
-		|Check Box		|click()			|used to toggle the element on/off							   |
-		|Radio Button	|					|															   |
-		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+		|Elements		|Command					|Description												   |
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|				|sendKeys()					|used to enter values onto text boxes						   |
+		|Input Box		|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|				|clear()					|used to clear text boxes of its current value				   |
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|Links			|click()					|used to click on the link and wait for page to load complete  |
+		|				|							|before proceeding to the next command.						   |
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|Submit Button	|submit()					|															   |
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|Check Box		|click()					|used to toggle the element on/off							   |
+		|Radio Button	|							|															   |
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|Drop-down		|selectByVisibleText()		|selects/deselects an option by its displayed text			   |														
+		|				|deselectByVisisbleText()	|															   |
+		|				|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|				|selectByValue()			|selects/deselects an option by the value of its "value" 	   |
+		|				|deselectByIndex)()			|attribute													   |
+		|				|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|				|selectByIndex()			|select/deselects an option by its index					   |
+		|				|deselectByIndex()			|															   |
+		|				|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|				|isMultiple()				|returns TRUE if the rop-down element allows multiple selection|
+		|				|							|at a time; FALSE if otherwise								   |
+		|				|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+		|				|deselectAll()				|deselects all previously selected options					   |
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
 		
 			WebDriver allows selection of more than one option in a multiple SELECT element
 			You can use the submit() method on any element within the form. WebDriver will automatically trigger the submit funtion of the form where that element belongs to
+			To control drop-down boxes, you must first import the org.openqa.selenium.support.ui.Select package and then create a Select instanc
+			
+			
+		_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+		|Method			|Description												   								|
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|clickAndHold()	|Clicks (without releasing) at the current mouse location									|
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|contextClick()	|Performs a context-click at the current mouse location. (Right Click Mouse Action)			|
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|doubleClick()	|Performs a double-click at the current mouse location										|
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|dragAndDrop	|Performs click-and-hold at the location of the source element, moves to the location of the|
+		|(source,target)|location of the target element, then releases the mouse.									|
+		|				|Parameters: source - element to emulate button down at										|
+		|				|			 target - element to move to and release the mouse at							|
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|dragAndDropBy	|Performs click-and-hold at the location of the source element, movws by a given offset,	|	
+		|(source, 		|then releases the mouse																	|
+		|x-offset,		|Parameters:	source - element to emulate button down at									|
+		|y-offset)		|				xOffset - horizontal move offset											|
+		|				|				yOffset - vertical move offset												|
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|keyDown		|Performs a modifier key press. Does not release the modifier key - subsequent interactions	|
+		|(modifier_key)	|may assume it's kept pressed																|
+		|				|Parameters: modifier_key - any of the modifier keys (Keys.ALT, Keys.SHIFT, or Keys.CONTROL)|
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|keyUp			|Performs a key release																		|
+		|(modifier_key)	|Parameters: modifier_key - any of the modifier keys (Keys.ALT, Keys.SHIFT, or Keys.CONTROL)|
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|moveByOffset	|Moves the mouse from its current position (or 0,0) by the given offset.					|
+		|(x-offset,		|Parameters: x-offset - horizontal offset. A negative value means moving the mouse left		|
+		|y-offset)		|			 y-offset - vertical offset. A negative value means moving the mouse down		|
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|moveToElement	|Moves the mouse to the middle of the element												|
+		|(toElement)	|Parameters: toElement - element to move to													|
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|release()		|Releases the depressed left mouse button at the current mouse location						|
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		|sendKeys		|Sends a series of keystrokes onto the element												|
+		|(onElement,	|Parameters:	onElement - element that will receive the keystrokes, usually a text field	|
+		|charsequence)	|				charsequence - any string value representing the sequence of keystrokes to 	|
+		|				|								be sent														|
+		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
