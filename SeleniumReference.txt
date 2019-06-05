@@ -315,3 +315,128 @@ Catching Exceptions:
 		|charsequence)	|				charsequence - any string value representing the sequence of keystrokes to 	|
 		|				|								be sent														|
 		|_ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _|
+		
+XPath
+	* aka. XML path, it is a syntax or language for finding any element on the web page using XML path expression
+	* XPath is used to find the location of any element on a webpage using HTML DOM structure
+	
+	Xpath = //tagname[@Attribute='Value']
+		// → select current node
+		tagname → tagname like input, div, img etc → tagname of the particular node
+		@ → selects attribute
+		attribute → attribute name of the node
+		'value' → value of the attribute
+		
+	Types of X-Path
+		1. Absolute XPath
+			the direct way to find the element
+			disadvantage → if there are any changes made in the path of the element then that XPath gets failed
+			key characterstics → it begins with the single forward slash (/), which means you can select the element from the root node
+			Ex.
+				html/body/div[1]/section/div[1]/div/div/div/div[3]/div[1]/div/h4[1]/b
+		2. Relative XPath
+			the path starts from the middle of the HTML DOM structure
+			it starts with the double forward slash (//), which means it can search the element anywhere at the webpage
+			can start from the middle HTML DOM structure and no need to write long xpath
+			Ex.
+				//*[@class='featured-box']//*text()='Testing']
+	XPath axes
+		* they search different nodes in XML document from current context node
+		* the methods used to find dynamic elements, which otherwise not possible by normal XPath method having no ID, Classname, Name, etc
+		* Axes methods are used to find those elements, which dynamically change on refresh or any other operations
+		* there are few axes methods commonly used in Selenium Webdriver like child, parent, ancestor, sibling, preceding, self, etc.
+	Using XPath Handling complex & Dynamic elements in Selenium
+		1. Basic XPath:
+			* XPath expression select nodes or list of nodes on the basis of attributes like ID, Name, Classname, etc from the XML document as illustrated below:
+				Xpath=//input[@name='uid']
+		2. Contains()
+			* is a method used in XPath expression
+			* used when the value of any attribute changes dynamically, for example, login information
+			* the contain feature has an abilityto find the element with partial text as shown below
+				ex. 
+					complete value of 'Type' is 'submit' but using only partial value 'sub'
+						Xpath=//*[contains(@type,'sub')]
+					complete value of 'name' is 'btnLogin' but using only partial value 'btn'
+						Xpath=//*[contains(@name, 'btn')]
+					In the above expression, we have taken the 'name' as an attribute and 'btn' as a partial value as shown in the below screenshot. 
+					This will find 2 elements (LOGIN & RESET) as thier 'name' attribute begins with 'btn'
+					Similarly, in the below expression, we have taken the 'id' as an attribute and 'message' as a partial value
+					This will find 2 elements ('User-ID must not be blank' & 'Password must not be blank') as its 'name' attribute begins with 'message'
+						Xpath-//*[contains(@id,'message')]
+		3. Using OR & AND:
+			in OR expression, two conditions are used, whether 1st condition OR 2nd condition should be true. It is also applicable if any one conditions is true or maybe both. Means any 				one condition is true or maybe both. Means any one condition should be true to find the element
+			In the below XPath expression, it identifies the elements whose single or both conditions are true
+			XPath=//*[@type='submit' or @name='btnReset']
+			Highlighting both elements as "LOGIN" element having attribute 'type' and "RESET" element having attribute 'name'
+			In AND expression, two conditions are used, both conditions should be true to find the element. It fails to find element if any one condition is false
+				Xpath=//input[@type='submit' and @name='btnLogin']
+		4. Start-with function:
+			Start-with function finds the element whose attribute value changes on refresh or any operation on the webpage. In this expression, match the starting text of the attribute is 			used to find the element whose attribute changes dynamically. You can also find the element whose attribute value is static (not changes)
+				ex. Suppose the ID of particular element changes dynamically like:
+					Id = "message12"
+					Id = "message345"
+					Id = "message8769"
+					and so on... but the inital text is same. In this case, we use start-with expression
+					In the below expression, there are two elements with an id starting "message" (i.e., 'user-ID must not be blank' & 'Password must not be blank')
+					In below example, XPath find those elements whose 'ID' starting with 'message'.
+						Xpath=//label[starts-with(@id, 'message')]
+		5. Text()
+			In this expression, with text function, we find the element with exact text match as shown below. In our case, we find the element with text "UserID"
+				Xpath-//td[text()='UserID']
+		6. XPath axes methods:
+			these xpath axes methods are used to find the complex or dynamic elements. Below we will see some of these methods
+			for illustrating these XPath axes methods, we will use the Guru99 bank demo site
+			a) Following:
+				Selects all elements in the document of the current node() [UserID input box is the current node] as shown in the below screen
+					Xpath=//*[@type='text']//following::input
+				There are 3 "input" nodes matching by using "following" axis-password, login, and reset button. If you want to focus on any particular element then you can use the below 				XPath method:
+					Xpath=//*[@type='text']//following::input[1]
+				You can change the XPath according to the requirment by putting [1], [2]... and so on
+			b) Ancestor: 
+				the ancestor axis selects all ancestors element (gradnparent, parent, etc) of the current node as shwon in the below screen
+				in the below expression, we are finding ancestors element of the current ndoe ("ENTERPRISE TESTING" node)
+					Xpath=//*[text()='Enterprise Testing']//ancestor::div
+			c) Child:
+				Selects all child elements of the current node as shown in the below screen
+					Xpath=//*[@id='java_technologies']/child::li
+			d) Preceding:
+				Select all nodes that come from before the current node as shown below in the below screen
+				In the below expression, it identifies all the input elements before "LOGIN" button that is Userid and password input element
+					Xpath=//*[@type='subnit']//preceding::input
+				There are 2 "input" nodes matching by using "preceding" axis. If you want to focus on any particular element then you can use the below XPath:
+					Xpath=//*@type='submit']//preceding::input[1]
+			e) Following-sibling
+				Select the follwoing sibling of the context node. Siblings are on the same level of the current node as shown in the below screen. It will find the element after current node
+					xpath=//*[@type='submit']//followign-sibling::input
+			f) Parent
+				Selects the parent of the current node as shown in the below screen
+					Xpath=//*[@id='rt-feature']//parent::div
+			g) Self
+				Selects the current node or 'self' means that it indicates the node itself as shown in the below screen
+				one node matching by using "self" axis. It always finds only one node as it represents self-element
+					Xpath=//*[@type='password']//self::input
+			h) Descendant
+				Selects the descendats of the current node as shown in the below screen
+				in the below expression, it identifies all the elements descendats to current element ('Main body surround' frame element) which means down under the node (child node, 				grandchild node, etc)
+						Xpath=//*[@id='rt=feature']//descendant::a
+Alerts:
+	Alert is a small message box which displays on-screen notification to give the user some kind of information or ask for permission to perform certain kind of operation. It may also be 	used for warning purpose
+	Alert types:
+		1. Simple Alert
+			This simple alert displays some information or warning on the screen
+		2. Prompt Alert
+			This prompt alert asks some input from the user and selenium webdriver can enter the trxt using send keys('input...')
+		3. Confirmation Alert
+			This confirmation alert asks permission to do some type of operation
+How to handle Alert in Selenium Webdriver
+	Alert interface provides the below few methods which are widely used in Selenium Webdriver
+	1. void dismiss()//to click the 'Cancel' button of the alert
+		driver.switchTo().alert().dismiss();
+	2. void accept() //to click on the 'OK' button of the alert
+		driver.switchTo().alert().getText();
+	3. String getText() //To capture the alert message
+		driver.switchTo().alert().getText();
+	4. void sendKeys(String stringToSend) //to send some data to alert box
+		driver.switchTo().alert().sendKeys("Text");
+	You can see a number of Alert methods are displayed as shown in below screen suggested by Eclipse
+	We can easily switch to alert from the main window by using Selenium's .switchTo() method
