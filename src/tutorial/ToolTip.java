@@ -56,6 +56,13 @@ public class ToolTip {
 		if(actualTooltip.contentEquals(expectedTooltip)) {
 			System.out.println("Test Case Passed");
 		}
+		/*
+		 * Code Explanation:
+		 * 1. Find the WebElement that corresponds to the element "download now" that we will mouse-hover
+		 * 2. Using the Interactions API, mouse hover on to the "Download now"
+		 * 3. Assuming the tooltip is displayed, find the WebElement that corresponds to the link inside the tooltip i.e. the "a" tag
+		 * 4. Verify the link's  tooltip text retrieved using the getText() against an expected value we have stored in "expectedToolTip"
+		 */
 	}
 			
 	public static void main(String[] args) {
