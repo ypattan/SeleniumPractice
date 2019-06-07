@@ -440,3 +440,71 @@ How to handle Alert in Selenium Webdriver
 		driver.switchTo().alert().sendKeys("Text");
 	You can see a number of Alert methods are displayed as shown in below screen suggested by Eclipse
 	We can easily switch to alert from the main window by using Selenium's .switchTo() method
+	
+Dynamic Web Tables
+	1. Static tables: Data is static i.e. Number of rows and columns are fixed
+	2. Dynamic tables: Data is dynamic i.e. Number of rows and columns are not fixed
+	
+	Using X-Path to locate web table elements
+		web element? 
+			Web elements are noting but HTML elements like textbox, dropdowns radio buttons, submit buttons, etc. These HTML elements are written with start tag and ends with an end tag
+		
+		Steps for getting X-path of web element that we want to locate:
+			ex. <p>My First HTML Document</p>
+			Steps for getting X-path of web elements that we want to locate
+			1. In Chrome, Go to http://demo.guru99.com/test/web-table-element.php
+			2. Right click on web element whose x-path is to be fetched. In our case, right click on "Company" Select Inspect option. The following screen will be shown
+			3. Right Click on highlighted web element >Select Copy->Copy x-path option
+			4. Use the copied X-path "//*[@id="leftcontainer"]/table/thread/tr/th[1]" in Selenium WebDriver to locate the element
+
+
+For checking the broke links, you will need to fo the following steps:
+	1. Collect all the links in the web page based on <a> tag
+	2. Send HTTP request for the link and read HTTP response code
+	3. Find out whether the link is valid or broken based on HTTP response code
+	4. Repeat this for all the links captured
+
+What does TestNG do?
+ * Using TestNG you ca generate a proper report, and you can easily come to know how many test cases are passed, failed and skipped
+ * You can execute failed test case separately. For example,
+ 	- Supposed, you have 5 test cases, one method is written for each test case (Assume that the program is written using the main method without usinf testNG). When you run this program first, three methods are executed successfully, and the fourth method is failed. Then correct the errors present in the fourth method, now you want to run only fourth method because first three methods are anyway executed successfully. This is not possible without using TestNG
+ * The TestNG provides an option, i.e. testng-failed.xml file in test-output folder. If you want to run only failed test cases means you run this XML file. It will execute only failed test cases
+ 
+ TestNG key features:
+ 	* Generate the report in a proper format including a number of test cases runs, the number of test cases passed, the number of test cases failed, and the number of test cases failed, 		and the number of test cases skipped
+	* Multiple test cases can be grouped more easily by converting them into testng.xml file. In which you can make priorities which test case should be executed first.
+	* The same test case can be executed mutiple times without loops just by using keyword called 'invocation count'
+	* Using testng, you can execute multiple test cases on multiple browsers, i.e., cross browser testing
+	* The testing framework can be easily integrated with tools like Maven, Jenkins, etc
+	* Annotations used in the testing are very easy to understand ex. - @BeforeMethod, @AfterMethod, @BeforeTest, @AfterTest
+	* WebDriver has no native mechanism for generating reports. TestNG can generate the report in a readable format like the one shown below
+	* TestNG simplifies the way the tests are coded. There is no more need for a static main method in our tests. The sequence of actions is regulated by easy-to-understand annotations that do not require methods to be static
+	* Uncaught exceptions are automatically handled by TestNG without terminating the test prematurely. These exceptions are reported as failed steps in the report
+	* TestNG > JUnit
+		- Annotations are easier to understand
+		- test cases can be grouped more easily
+		- parallel testing in possible
+		
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+| 		method		|																										|
+|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+| @BeforeMethod		| methods under this annotation will be executed prior to each method in each test case					|
+|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+| @AfterMethod		| methods under this annotation will be executed after each method in each test case					|
+|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+| @BeforeSuite		| The annotated method will be run before all tests in thsi shuite have run								|
+|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+| @AfterSuite		| The annotated method will be run after all the tests in this suite have run							|
+|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+| @BeforeTest		| The annotated method will be run before any test method belonging to the classes inside the tag is run|
+|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+| @AfterTest		| The annotated method will be run after all the test methods belonging to the classes inside the tag 	|
+|					| have run																								|
+|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+| @BeforeGroups		| The list of groups that this configuration method will run before. This method is guaranteed to run 	|
+|					|	shortly before the first test method that belongs to any of these groups is invoked					|
+|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+| @AfterMethod		| The annotated method will be run before each test method												|
+|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+| @Test				| The annotated method is a part of a test case															|
+|_ _ _ _ _ _ _ _ _ _|_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
